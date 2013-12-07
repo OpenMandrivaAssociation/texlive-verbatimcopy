@@ -6,7 +6,7 @@
 # catalog-version 0.06
 Name:		texlive-verbatimcopy
 Version:	0.06
-Release:	3
+Release:	4
 Summary:	Make copies of text documents from within LaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/verbatimcopy
