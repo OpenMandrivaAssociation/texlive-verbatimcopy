@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/verbatimcopy
-# catalog-date 2009-06-02 14:54:30 +0200
-# catalog-license lppl
-# catalog-version 0.06
 Name:		texlive-verbatimcopy
-Version:	0.06
-Release:	11
+Version:	15878
+Release:	1
 Summary:	Make copies of text documents from within LaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/verbatimcopy
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/verbatimcopy.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/verbatimcopy.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/verbatimcopy.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/verbatimcopy.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -26,12 +20,12 @@ output directory to be used, but does no checking and may
 therefore overwrite an important file if used injudiciously.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -42,23 +36,10 @@ therefore overwrite an important file if used injudiciously.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Thu Jan 05 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.06-2
-+ Revision: 757415
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 0.06-1
-+ Revision: 719882
-- texlive-verbatimcopy
-- texlive-verbatimcopy
-- texlive-verbatimcopy
-
